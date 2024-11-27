@@ -45,12 +45,12 @@ public class loginStep extends TestBase {
 
     @And("the user enters a password")
     public void userEntersPassword() {
-        loginPage.enterpassword("SuperSecretPasswordd!");
+        loginPage.enterpassword("SuperSecretPassword!");
     }
 
     @When("the user enters a username")
     public void userEntersUserName() {
-        loginPage.enterusername("tomsmith");
+        loginPage.enterusername("tomsmith2");
     }
 
     @Then("the user should see an error message")
