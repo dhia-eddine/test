@@ -55,4 +55,10 @@ public class loginPage {
         loginBtn.click();
     }
 
+    public String getMessageErr() {
+        WebElement message = wait
+                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[id='flash']")));
+        return message.getText();
+    }
+
 }

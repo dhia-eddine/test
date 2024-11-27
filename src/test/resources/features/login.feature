@@ -7,3 +7,11 @@ Feature: Login Functionality
     And the user enters a password
     And clicks on the login button
     Then the user should see a successful login message
+
+  @InvalidCredentials
+  Scenario Outline: Failed login with invalid credentials
+    Given the user is on the login page
+    When the user enters a username
+    And the user enters a password
+    And clicks on the login button
+    Then the user should see an error message
