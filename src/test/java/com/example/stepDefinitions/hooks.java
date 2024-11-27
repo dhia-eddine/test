@@ -13,7 +13,6 @@ import io.cucumber.java.Scenario;
 public class hooks {
     public static ExtentTest _scenario;
 
-
     @Before
     public void setUp(Scenario scenario) {
         if (TestBase.getDriver() == null) {
@@ -27,15 +26,15 @@ public class hooks {
         if (scenario.isFailed()) {
             String screenshotName = scenario.getName().replaceAll(" ", "_");
             String screenshotPath = new TestBase().captureScreenshot(screenshotName);
-            
+
             try {
-                _scenario.fail("Test Failed", 
-                    MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+                _scenario.fail("Test Failed",
+                        MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
             } catch (Exception e) {
                 _scenario.log(Status.FAIL, "Failed to attach screenshot: " + e.getMessage());
             }
         }
-        
+
         TestBase.tearDown();
         ExtentManager.getInstance().flush();
     }
